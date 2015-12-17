@@ -20,6 +20,7 @@ tags:
 **上面的统统没有！只说将一个关于Drawable不常用到的用法**
 
 ---
+
 ### 我们要实现的效果如下图
 
 ![](httP://img.blog.csdn.net/20151217105800205)
@@ -35,7 +36,7 @@ tags:
 3. View实现TranslationAnimation，可实现整体的上移或者下移，同时创建时间插值
 4. 把View动画创建的时间插值动态传递给Drawable，Drawable根据时间插值，动态计算并绘制图形
 
-###好处如下：
+### 好处如下：
 1. 使用Drawable而不是在View中来绘制，不会影响到之前View中onDraw的代码和逻辑
 2. Drawable一般当做背景，与view耦合很小
 3. Animation产生插值，可设置不同加速器 产生不同效果
@@ -44,7 +45,7 @@ tags:
 
 ***
 
-#以下为部分代码
+# 以下为部分代码
 
 
 ### 1.创建TranslationAnimation产生时间插值
