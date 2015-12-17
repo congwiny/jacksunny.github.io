@@ -1,22 +1,22 @@
 # Site settings
-title: Hux Blog
+title: JackSunny
 SEOTitle: 午夜凶林的博客 | JackSunny
 header-img: img/home-bg.jpg
 email: houshijie3@126.com
-description: "关于前端与设计、黑客与画家 | 黄玄，Web & Mobile Lover，Front-End Engineer，UX Designer | 这里是 @Hux黄玄 的个人博客，与你一起发现更大的世界。"
-keyword: "黄玄, Hux黄玄, Hux, 鬼栈, huxpro, @huxpro, 黄玄的博客, Hux Blog, 博客, 个人网站, 互联网, 前端, 设计, 产品, 肖玉, Lynn, 肖玉的男朋友"
-url: "http://huangxuan.me"              # your host, for absolute URL
+description: "这是JackSunny的自留地，进来看看，也许能找到隐藏土地下的珍宝"
+keyword: "JackSunny，午夜凶林，csdn"
+url: "https://jacksunny.github.io/"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 
 
 # SNS settings
 RSS: false
-weibo_username:     huxpro
-zhihu_username:     huxpro
-github_username:    huxpro
-#twitter_username:  huxpro
-facebook_username:  huxpro
+weibo_username:     JackSunny
+zhihu_username:     JackSunny
+github_username:    JackSunny
+#twitter_username:  JackSunny
+facebook_username:  JackSunny
 
 
 
