@@ -62,7 +62,7 @@ ga_domain: huangxuan.me
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "看书写代码运动，一块属于你我的自留地"
-sidebar-avatar: /img/avatar-hux.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/avatar_jacksunny_sidebar.jpeg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
