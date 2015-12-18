@@ -4,15 +4,14 @@ title:      "Volley入门及使用「汇总」"
 subtitle:   "关于Volley入门知识及如何使用，扩展方法"
 date:       2015-12-18
 author:     "JackSunny"
-header-img: "img/post-bg-volley_bg.jpeg"
+header-img: "img/post-bg-android.jpg"
 tags:
     - Android
-    - Drawable
-    - Animation
-    - Canvas
+    - Volley
 ---
 
 # Volley 初识
+
 ### 导语
 
 > * 本文适合有Android开发经验或者想了解杰出网络开源框架的读者
@@ -37,19 +36,19 @@ tags:
 	> 发布时有一个很形象的配图
 	> ![](https://raw.githubusercontent.com/android-cn/android-open-project-analysis/master/tool-lib/network/volley/image/volley.png)
 
-	  	从名字由来和配图中无数急促的火箭可以看出 Volley 的特点：特别适合数据量小，通信频繁的网络操作。（其实 应用中绝大多数的网络操作都属于这种类型）。
+从名字由来和配图中无数急促的火箭可以看出 Volley 的特点：特别适合数据量小，通信频繁的网络操作。（其实 应用中绝大多数的网络操作都属于这种类型）。
 
 * ##### WHY
 
 	我们为什么使用它 ？
 
 > 1. **简化了Http请求的操作**
-> 
->			HttpURLConnection和HttpClient的用法还是稍微有些复杂的，如果不进行适当封装的话，很容易就会写出不少重复代码。
+ 
+>    HttpURLConnection和HttpClient的用法还是稍微有些复杂的，如果不进行适当封装的话，很容易就会写出不少重复代码。
 > 2. **异步下载，结果可以直接在主线程进行操作**
 
->			在Android4.0以后，会发现，只要是写在主线程（就是Activity）中的HTTP请求，运行时都会报错，这是因为Android在4.0以后为了防止应用的ANR（aplication Not Response）异常.
->     		而Volley则完全不用考虑这些问题。
+>		在Android4.0以后，会发现，只要是写在主线程（就是Activity）中的HTTP请求，运行时都会报错，这是因为Android在4.0以后为了防止应用的ANR（aplication Not Response）异常.
+>     	而Volley则完全不用考虑这些问题。
 > 3. **JSON，图像等返回结果的处理**
 > 
 >			在http请求之后一般都需要对数据进行预处理，尤其是对图片的预处理，而Volley对这些操作进行了基本的封装。在简单的使用情景下，基本够用了。但是如果需要对其进行一些复杂的操作，就需要增加自己的请求类。
