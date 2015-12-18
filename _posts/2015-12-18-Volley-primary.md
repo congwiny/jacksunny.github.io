@@ -87,18 +87,19 @@ public void cancel();
 * ### WHERE&WHEN
 
 	在哪里&什么时候使用它？
+	
 	> 发布时有一个很形象的配图
-	> ![](https://raw.githubusercontent.com/android-cn/android-open-project-analysis/master/tool-lib/network/volley/image/volley.png)
+	![](https://raw.githubusercontent.com/android-cn/android-open-project-analysis/master/tool-lib/network/volley/image/volley.png)
 
-		从名字由来和配图中无数急促的火箭可以看出 Volley 的特点：特别适合数据量小，通信频繁的网络操作。（其实 应用中绝大多数的网络操作都属于这种类型）。
+	从名字由来和配图中无数急促的火箭可以看出 Volley 的特点：特别适合数据量小，通信频繁的网络操作。（其实 应用中绝大多数的网络操作都属于这种类型）。
 
 * ### WHO
 
 	谁来使用它？
 	
-		- 推荐小白及入门程序员略过，先学习使用Thread+handler或者AsyncTask等入门方法，在使用Volley
-		- 推荐普通程序员来使用
-		- 推荐文艺程序员可以理解原理修改后使用（因为volley也是有自己的缺点的，后提），适合自己的才是最好的
+	* 推荐小白及入门程序员略过，先学习使用Thread+handler或者AsyncTask等入门方法，在使用Volley
+	* 推荐普通程序员来使用
+	* 推荐文艺程序员可以理解原理修改后使用（因为volley也是有自己的缺点的，后提），适合自己的才是最好的
 
 * ### HOW
 
