@@ -42,20 +42,24 @@ tags:
 
 	我们为什么使用它 ？
 
-> 1. **简化了Http请求的操作**
+###### 1. **简化了Http请求的操作**
  
 >    HttpURLConnection和HttpClient的用法还是稍微有些复杂的，如果不进行适当封装的话，很容易就会写出不少重复代码。
+
 > 2. **异步下载，结果可以直接在主线程进行操作**
 
->		在Android4.0以后，会发现，只要是写在主线程（就是Activity）中的HTTP请求，运行时都会报错，这是因为Android在4.0以后为了防止应用的ANR（aplication Not Response）异常.
+>>在Android4.0以后，会发现，只要是写在主线程（就是Activity）中的HTTP请求，运行时都会报错，这是因为Android在4.0以后为了防止应用的ANR（aplication Not Response）异常.
 >     	而Volley则完全不用考虑这些问题。
+
 > 3. **JSON，图像等返回结果的处理**
 > 
 >			在http请求之后一般都需要对数据进行预处理，尤其是对图片的预处理，而Volley对这些操作进行了基本的封装。在简单的使用情景下，基本够用了。但是如果需要对其进行一些复杂的操作，就需要增加自己的请求类。
 >			可以直接将返回值设置给ImageView。
+
 > 4. **多级缓存**
 > 
 >			我们在主线程中调用RequestQueue的add()方法来添加一条网络请求，这条请求会先被加入到缓存队列当中，如果发现可以找到相应的缓存结果就直接读取缓存并解析，然后回调给主线程。如果在缓存中没有找到结果，则将这条请求加入到网络请求队列中，然后处理发送HTTP请求，解析响应结果，写入缓存，并回调主线程。
+	
 > 5. **多级别取消请求api**
 > 
 >			某些情况下我们需要取消已经添加到队列的请求,volley对这一操作进行了很好的封装.
@@ -66,9 +70,11 @@ public void cancelAll(final Object tag);
 public void cancelAll(RequestFilter filter);
 public void cancel();
 ```
+
 > 6. **利于扩展**
 > 
 >			可以自定义请求request（即定义request数据类型）和返回response（即定义返回数据类型)。
+
 > 7. **系出名门**
 > 
 >			Google自己出品，品质有保证。
