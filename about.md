@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "About"
+title: "关于我"
 description: "Hey, i'm JackSunny"
 header-img: "img/about-bg.jpg"
 
