@@ -150,8 +150,9 @@ mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.XOR));
   `当时间插值为 0.5f - 1.0f的时候，控制椭圆所在矩形高度由0增大到最大，同时绘制椭圆上半部`
   
   `当到1.0f时，根据阻尼振动函数 计算出递增插值下 包含椭圆 矩形的高度绘制半部椭圆即可`
+
   
-  ```
+```
     /**
      * 设置时间插值，并根据插值计算椭圆所在矩形高度，从而得到不同的椭圆弧度
      * @param value
@@ -177,7 +178,7 @@ mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.XOR));
         invalidateSelf();
     }
   
-  ```
+```
 
 ```
     /**
