@@ -30,13 +30,8 @@ tags:
 
 
 	> [*`Volley`*](http://developer.android.com/intl/zh-cn/training/volley/index.html)是 Google 推出的 Android 异步网络请求框架和图片加载框架。在 Google I/O 2013 大会上发布。
-	
-	>     名字来源：a burst or emission of many things or a large amount at once
-	
-	> 发布时有一个很形象的配图
-	> ![](https://raw.githubusercontent.com/android-cn/android-open-project-analysis/master/tool-lib/network/volley/image/volley.png)
 
-从名字由来和配图中无数急促的火箭可以看出 Volley 的特点：特别适合数据量小，通信频繁的网络操作。（其实 应用中绝大多数的网络操作都属于这种类型）。
+	>     名字来源：a burst or emission of many things or a large amount at once
 
 * ### WHY
 
@@ -92,6 +87,8 @@ public void cancel();
 	![](https://raw.githubusercontent.com/android-cn/android-open-project-analysis/master/tool-lib/network/volley/image/volley.png)
 
 	从名字由来和配图中无数急促的火箭可以看出 Volley 的特点：特别适合数据量小，通信频繁的网络操作。（其实 应用中绝大多数的网络操作都属于这种类型）。
+	
+	我们平常用到的请求列表数据，更新信息等大部分（非大文件）都属于此等范畴。
 
 * ### WHO
 
@@ -109,11 +106,93 @@ public void cancel();
 
 ---
 
+### 代码下载
+
+Volley是发布在Google Code上的，现在一般都是从GitHub上找官方的镜像代码，如 [Volley-GitHub地址](https://github.com/mcxiaoke/android-volley) (an unofficial mirror)。
+
+```
+git clone https://github.com/mcxiaoke/android-volley.git
+```
+请注意，这个是Android Studio 版本。
+
+### 原理初探
+
+讲使用之前，稍微提一点Volley的原理，用以帮助 读者 更好理解稍后的例子
+
+Volley 中是以队列的方式 处理网络请求：来了一个新的网络请求，它会先检查Cache，如果没有，就会转移到网络，拿到结果后返回结果。
+
+关于Volley的详细原理和架构之后会写文章阐述或者读者在网路上自行搜索。
+
+
+### HelloWorld
+
+我们以一个最简单的一个例子对 Volley Say HelloWorld 吧！
+
+本例子中，我们将用 Volley 将用GET方式访问一个网址（可以看做接口），该接口会返回网页的所有信息。
+
+根据之上的原理初探，我们需要一个队列，需要一个请求，然后处理返回
+
+**1.创建队列 RequestQueue 对象**
+
+```
+   RequestQueue mQueue = Volley.newRequestQueue(context);
+```
+   
+   > 注意这里拿到的RequestQueue是一个请求队列对象，它可以缓存所有的HTTP请求，然后按照一定的算法并发地发出这些请求。RequestQueue内部的设计就是非常合适高并发的，因此我们不必为每一次HTTP请求都创建一个RequestQueue对象，这是非常浪费资源的，基本上在每一个需要和网络交互的Activity中创建一个RequestQueue对象就足够了。
+   
+
+**2.创建请求实例 StringRequest 对象(包含了对返回的处理回调)**
+
+```
+String url = "http://www.baidu.com";
+StringRequest stringRequest = new StringRequest(url,  
+      new Response.Listener<String>() {  
+         @Override  
+         public void onResponse(String response) {  
+            Log.d("TAG", response);  
+         }  
+      }, new Response.ErrorListener() {  
+         @Override  
+         public void onErrorResponse(VolleyError error) {  
+            Log.e("TAG", error.getMessage(), error);  
+         }  
+      });
+```
+
+> 可以看到，这里new出了一个StringRequest对象，StringRequest的构造函数需要传入三个参数，第一个参数就是目标服务器的URL地址，第二个参数是服务器响应成功的回调，第三个参数是服务器响应失败的回调。其中，目标服务器地址我们填写的是百度的首页，然后在响应成功的回调里打印出服务器返回的内容，在响应失败的回调里打印出失败的详细信息
+
+**3.将请求实例对象 StringRequest 加入 RequestQueue 中，即可自动执行**
+
+```
+mQueue.add(stringRequest); 
+```
+
+**4.在这之前，一定要加入网络访问权限，否则会失败的**
+
+```
+<uses-permission android:name="android.permission.INTERNET" /> 
+```
+
+好了，是不是很简单，拿起这个例子运行一下吧，可以看到类似下图所示的log信息
+
+![](http://7xpc6d.com1.z0.glb.clouddn.com/volly_response.png)
+
+这证明已经成功了！
+
+
+`未完待续`
+
+
+
+
+
+
+
 
 
 
 ### 参考以下文章
 --- 
 * [为什么使用Volley框架](http://www.jeepshoe.org/628560891.htm)
-* 
+* [郭霖的专栏](http://blog.csdn.net/guolin_blog/article/details/17482095)
 
