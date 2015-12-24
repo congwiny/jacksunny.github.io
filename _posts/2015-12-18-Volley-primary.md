@@ -228,8 +228,8 @@ HelloWorld例子中我们使用了StringRequest，当前Volley常用到的的Req
 
 **1.ImageRequest加载图片**
 
-前面我们已经学习过了StringRequest和JsonRequest的用法，并且总结出了它们的用法都是非常类似的，基本就是进行以下三步操作即可：
-> 
+> 前面我们已经学习过了StringRequest和JsonRequest的用法，并且总结出了它们的用法都是非常类似的，基本就是进行以下三步操作即可：
+> 	
 	1.创建一个RequestQueue对象。 
 	2.创建一个Request对象。
 	3.将Request对象添加到RequestQueue里面。
@@ -418,6 +418,5 @@ networkImageView.setImageUrl("http://img.my.csdn.net/uploads/201404/13/139739329
 --- 
 
 * [为什么使用Volley框架](http://www.jeepshoe.org/628560891.htm)
-* 
 * [郭霖的专栏](http://blog.csdn.net/guolin_blog/article/details/17482095)
 
