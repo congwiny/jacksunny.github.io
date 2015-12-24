@@ -12,7 +12,7 @@ tags:
 ---
     
 > 这篇文章转载自[我在知乎上的回答](http://www.zhihu.com/question/25104721/answer/30108886)
-{% highlight ruby %}
+{% highlight java %}
 def show
   @widget = Widget(params[:id])
   respond_to do |format|
