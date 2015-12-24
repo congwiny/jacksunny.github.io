@@ -22,6 +22,7 @@ facebook_username:  JackSunny
 
 # Build settings
 highlighter: pygments
+pygments: true
 permalink: pretty
 paginate: 10
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
