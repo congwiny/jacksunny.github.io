@@ -65,11 +65,11 @@ tags:
 
 > 使用Volley的话，我们可以在Activity停止的时候，同时取消所有或部分未完成的网络请求。Volley里所有的请求结果会返回给主进程，如果在主进程里取消了某些请求，则这些请求将不会被返回给主线程。
 
-```java
+{% highlight java %}
 public void cancelAll(final Object tag);
 public void cancelAll(RequestFilter filter);
 public void cancel();
-```
+{% endhighlight %}
 
 ###### 6. **利于扩展**
 
