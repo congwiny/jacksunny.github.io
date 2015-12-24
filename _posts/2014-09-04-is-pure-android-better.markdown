@@ -10,9 +10,6 @@ tags:
     - 交互设计
     - Android
 ---
-
-   <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="{{ "/css/syntax.css" | prepend: site.baseurl }}">
     
 > 这篇文章转载自[我在知乎上的回答](http://www.zhihu.com/question/25104721/answer/30108886)
 {% highlight ruby %}
