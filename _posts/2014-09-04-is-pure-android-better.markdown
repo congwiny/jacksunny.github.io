@@ -15,7 +15,6 @@ tags:
     <link rel="stylesheet" href="{{ "/css/syntax.css" | prepend: site.baseurl }}">
     
 > 这篇文章转载自[我在知乎上的回答](http://www.zhihu.com/question/25104721/answer/30108886)
-<pre class="highlight">
 {% highlight ruby %}
 def show
   @widget = Widget(params[:id])
@@ -25,9 +24,6 @@ def show
   end
 end
 {% endhighlight %}
-</pre>
-
-
 
 <p>哎呀～不要站队嘛。其实这是一个很有意思的题目，让我们一点点来看
     <br>
