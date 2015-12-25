@@ -72,7 +72,7 @@ public void cancelAll(RequestFilter filter);
 public void cancel();
 {% endhighlight %}
 
-###### 6. **利于扩展**
+###### 6. **利于扩展A**
 
 {% highlight java %}
 import;
