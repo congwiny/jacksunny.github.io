@@ -1,28 +1,27 @@
 # Site settings
-title: JackSunny
-SEOTitle: 午夜凶林的博客 | JackSunny
+title: Hux Blog
+SEOTitle: 黄玄的博客 | Hux Blog
 header-img: img/home-bg.jpg
-email: houshijie3@126.com
-description: "这是JackSunny的自留地，进来看看，也许能找到隐藏土地下的珍宝"
-keyword: "JackSunny，午夜凶林，csdn"
-url: "https://jacksunny.github.io/"              # your host, for absolute URL
+email: huxpro@gmail.com
+description: "关于前端与设计、黑客与画家 | 黄玄，Web & Mobile Lover，Front-End Engineer，UX Designer | 这里是 @Hux黄玄 的个人博客，与你一起发现更大的世界。"
+keyword: "黄玄, Hux黄玄, Hux, 鬼栈, huxpro, @huxpro, 黄玄的博客, Hux Blog, 博客, 个人网站, 互联网, 前端, 设计, 产品, 肖玉, Lynn, 肖玉的男朋友"
+url: "http://huangxuan.me"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 
 
 # SNS settings
 RSS: false
-weibo_username:     JackSunny
-zhihu_username:     JackSunny
-github_username:    JackSunny
-#twitter_username:  JackSunny
-facebook_username:  JackSunny
+weibo_username:     huxpro
+zhihu_username:     huxpro
+github_username:    huxpro
+#twitter_username:  huxpro
+facebook_username:  huxpro
 
 
 
 # Build settings
 highlighter: pygments
-pygments: true
 permalink: pretty
 paginate: 10
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
@@ -41,12 +40,12 @@ kramdown:
 
 
 # Disqus settings
-disqus_username: jacksunny
+#disqus_username: _your_disqus_short_name_
 
 # Duoshuo settings
-#duoshuo_username: jacks
+duoshuo_username: huxblog
 # Share component is depend on Comment so we can NOT use share only.
-#duoshuo_share: true                     # set to false if you want to use Comment without Sharing
+duoshuo_share: true                     # set to false if you want to use Comment without Sharing
 
 
 
@@ -62,8 +61,8 @@ ga_domain: huangxuan.me
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "看书写代码运动，一块属于你我的自留地"
-sidebar-avatar: /img/avatar_jacksunny_sidebar.jpeg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: "写写代码，做做设计，看看产品。世界那么大，我想去看看。"
+sidebar-avatar: /img/avatar-hux.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
