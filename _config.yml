@@ -1,0 +1,97 @@
+# Site settings
+title: JackSunny
+SEOTitle: 午夜凶林的博客 | JackSunny
+header-img: img/home-bg.jpg
+email: houshijie3@126.com
+description: "这是JackSunny的自留地，进来看看，也许能找到隐藏土地下的珍宝"
+keyword: "JackSunny，午夜凶林，csdn"
+url: "https://jacksunny.github.io/"              # your host, for absolute URL
+baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
+
+
+
+# SNS settings
+RSS: false
+weibo_username:     JackSunny
+zhihu_username:     JackSunny
+github_username:    JackSunny
+#twitter_username:  JackSunny
+facebook_username:  JackSunny
+
+
+
+# Build settings
+highlighter: pygments
+pygments: true
+permalink: pretty
+paginate: 10
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
+
+
+
+# Markdown settings
+# replace redcarpet to kramdown,
+# although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
+# document: http://jekyllrb.com/docs/configuration/#kramdown
+markdown: kramdown
+kramdown:
+  input: GFM                            # use Github Flavored Markdown !important
+
+
+
+# Disqus settings
+disqus_username: jacksunny
+
+# Duoshuo settings
+#duoshuo_username: jacks
+# Share component is depend on Comment so we can NOT use share only.
+#duoshuo_share: true                     # set to false if you want to use Comment without Sharing
+
+
+
+
+# Analytics settings
+# Baidu Analytics
+ba_track_id: 4cc1f2d8f3067386cc5cdb626a202900
+# Google Analytics
+ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
+ga_domain: huangxuan.me
+
+
+
+# Sidebar settings
+sidebar: true                           # whether or not using Sidebar.
+sidebar-about-description: "看书写代码运动，一块属于你我的自留地"
+sidebar-avatar: /img/avatar_jacksunny_sidebar.jpeg      # use absolute URL, seeing it's used in both `/` and `/about/`
+
+
+
+# Featured Tags
+featured-tags: true                     # whether or not using Feature-Tags
+featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
+
+
+
+# Friends
+friends: [
+    {
+        title: "天镶的博客",
+        href: "http://lingyu.wang/"
+    },{
+        title: "Luke的自留地",
+        href: "http://hmqk1995.github.io"
+    },{
+        title: "SmdCn's Blog",
+        href: "http://blog.smdcn.net"
+    },{
+        title: "解旻的博客",
+        href: "http://xieminis.me/"
+    },{
+        title: "DHong Say",
+        href: "http://dhong.co"
+    },{
+        title: "尹峰以为",
+        href: "http://ingf.github.io/"
+    }
+]
