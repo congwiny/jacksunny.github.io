@@ -12,7 +12,7 @@ tags:
     - Canvas
 ---
 
-## 本文会带来什么？
+##本文会带来什么？
 
 * xml如何自定义圆角 shapeDrawable？环形？三角形？
 * drawable有多少种？用法是什么？
@@ -54,92 +54,92 @@ tags:
 ### 1.创建TranslationAnimation产生时间插值
 
 ```java
-		final AnimationSet as = new AnimationSet(true);
-        as.setDuration(600);
-        TranslateAnimation translateAnimation = new TranslateAnimation(
-                ScaleAnimation.RELATIVE_TO_SELF,0,
-                ScaleAnimation.RELATIVE_TO_SELF,0,
-                ScaleAnimation.RELATIVE_TO_SELF,1.0f,
-                ScaleAnimation.RELATIVE_TO_SELF,0){
-            @Override
-            protected void applyTransformation(float interpolatedTime, Transformation t) {
-                super.applyTransformation(interpolatedTime, t);
-                myDrawable.setPercent(interpolatedTime, true);
-            }
-        };
-        as.addAnimation(translateAnimation);
-        return as;
+final AnimationSet as = new AnimationSet(true);
+as.setDuration(600);
+TranslateAnimation translateAnimation = new TranslateAnimation(
+        ScaleAnimation.RELATIVE_TO_SELF,0,
+        ScaleAnimation.RELATIVE_TO_SELF,0,
+        ScaleAnimation.RELATIVE_TO_SELF,1.0f,
+        ScaleAnimation.RELATIVE_TO_SELF,0){
+    @Override
+    protected void applyTransformation(float interpolatedTime, Transformation t) {
+        super.applyTransformation(interpolatedTime, t);
+        myDrawable.setPercent(interpolatedTime, true);
+    }
+};
+as.addAnimation(translateAnimation);
+return as;
 ```
 		
         
 ### 2.自定义Drawable及讲解
 
 ```java
-	public class MyAnimationDrawable3 extends Drawable implements Drawable.Callback {
-    	private Paint mPaint;
-    	private int mWidth;
-    	private int mHeight;
-    	public MyAnimationDrawable3(int width,int height) {
-        	mPaint = new Paint();
-        	mWidth = width;
-        	mHeight = height;
-    	}
+public class MyAnimationDrawable3 extends Drawable implements Drawable.Callback {
+	private Paint mPaint;
+	private int mWidth;
+	private int mHeight;
+	public MyAnimationDrawable3(int width,int height) {
+    	mPaint = new Paint();
+    	mWidth = width;
+    	mHeight = height;
+	}
 
-    	@Override
-    	public void draw(Canvas canvas) {
-        	// 主要绘制代码
-		//  canvas.drawRoundRect(rectF, 30, 30, mPaint);
-    	}
+	@Override
+	public void draw(Canvas canvas) {
+    	// 主要绘制代码
+	//  canvas.drawRoundRect(rectF, 30, 30, mPaint);
+	}
 
-    	@Override
-    	public int getIntrinsicWidth() {
-        	return mWidth;
-    	}
+	@Override
+	public int getIntrinsicWidth() {
+    	return mWidth;
+	}
 
-    	@Override
-    	public int getIntrinsicHeight() {
-        	return mHeight;
-    	}
+	@Override
+	public int getIntrinsicHeight() {
+    	return mHeight;
+	}
 
-    	@Override
-    	public void setAlpha(int alpha) {
-        	mPaint.setAlpha(alpha);
-    	}
+	@Override
+	public void setAlpha(int alpha) {
+    	mPaint.setAlpha(alpha);
+	}
 
-    	@Override
-    	public void setColorFilter(ColorFilter cf) {
-       	 	mPaint.setColorFilter(cf);
-    	}
+	@Override
+	public void setColorFilter(ColorFilter cf) {
+   	 	mPaint.setColorFilter(cf);
+	}
 
-    	@Override
-    	public int getOpacity() {
-        	return PixelFormat.TRANSLUCENT;
-    	}
+	@Override
+	public int getOpacity() {
+    	return PixelFormat.TRANSLUCENT;
+	}
 
-    	@Override
-    	public void invalidateDrawable(Drawable who) {
-        	final Callback callback = getCallback();
-        	if (callback != null) {
-            	callback.invalidateDrawable(this);
-        	}
-    	}
-
-    	@Override
-    	public void scheduleDrawable(Drawable who, Runnable what, long when) {
-        	final Callback callback = getCallback();
-        	if (callback != null) {
-            	callback.scheduleDrawable(this, what, when);
-        	}
-    	}
-
-    	@Override
-    	public void unscheduleDrawable(Drawable who, Runnable what) {
-        	final Callback callback = getCallback();
-        	if (callback != null) {
-            	callback.unscheduleDrawable(this, what);
-        	}
+	@Override
+	public void invalidateDrawable(Drawable who) {
+    	final Callback callback = getCallback();
+    	if (callback != null) {
+        	callback.invalidateDrawable(this);
     	}
 	}
+
+	@Override
+	public void scheduleDrawable(Drawable who, Runnable what, long when) {
+    	final Callback callback = getCallback();
+    	if (callback != null) {
+        	callback.scheduleDrawable(this, what, when);
+    	}
+	}
+
+	@Override
+	public void unscheduleDrawable(Drawable who, Runnable what) {
+    	final Callback callback = getCallback();
+    	if (callback != null) {
+        	callback.unscheduleDrawable(this, what);
+    	}
+	}
+}
 ```
     
      
@@ -148,21 +148,21 @@ tags:
 ### 3.传递时间插值进入Drawable
 
 ```java
-     /**
-     * @param percent 时间插值
-     */
-    public void setPrecent(float percent){
-        if (percent > 0.5f){
-            //逻辑代码，计算弧度等
-        }else{
-            //逻辑代码，计算弧度等
-        }
-        // 刷新 draw 图形
-        invalidateSelf();
+ /**
+ * @param percent 时间插值
+ */
+public void setPrecent(float percent){
+    if (percent > 0.5f){
+        //逻辑代码，计算弧度等
+    }else{
+        //逻辑代码，计算弧度等
     }
+    // 刷新 draw 图形
+    invalidateSelf();
+}
 ```
 
-> 传递进去时间插值后，即可根据时间插值计算相关弧度，在draw中进行绘制即可完成动态图中的效果（绘制逻辑 就不说了，大概为插值0-1绘制向上半圆弧，到顶点根据阻尼振动函数绘制半径变化的圆弧），就此完毕        
+> 传递进去时间插值后，即可根据时间插值计算相关弧度，在draw中进行绘制即可完成动态图中的效果（绘制逻辑 就不说了，大概为插值0-1绘制向上半圆弧，到顶点根据阻尼振动函数绘制半径变化的圆弧）       
         
         
         
