@@ -162,6 +162,22 @@ StringRequest stringRequest = new StringRequest(url,
       });
 ```
 
+```ruby
+String url = "http://www.baidu.com";
+StringRequest stringRequest = new StringRequest(url,  
+      new Response.Listener<String>() {  
+         @Override  
+         public void onResponse(String response) {  
+            Log.d("TAG", response);  
+         }  
+      }, new Response.ErrorListener() {  
+         @Override  
+         public void onErrorResponse(VolleyError error) {  
+            Log.e("TAG", error.getMessage(), error);  
+         }  
+      });
+```
+
 > 可以看到，这里new出了一个StringRequest对象，StringRequest的构造函数需要传入三个参数，第一个参数就是目标服务器的URL地址，第二个参数是服务器响应成功的回调，第三个参数是服务器响应失败的回调。其中，目标服务器地址我们填写的是百度的首页，然后在响应成功的回调里打印出服务器返回的内容，在响应失败的回调里打印出失败的详细信息
 
 **3.将请求实例对象 StringRequest 加入 RequestQueue 中，即可自动执行**
