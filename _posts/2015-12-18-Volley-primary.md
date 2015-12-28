@@ -65,21 +65,13 @@ tags:
 
 > 使用Volley的话，我们可以在Activity停止的时候，同时取消所有或部分未完成的网络请求。Volley里所有的请求结果会返回给主进程，如果在主进程里取消了某些请求，则这些请求将不会被返回给主线程。
 
-{% highlight java %}
-import;
+```java
 public void cancelAll(final Object tag);
 public void cancelAll(RequestFilter filter);
 public void cancel();
-{% endhighlight %}
+```
 
 ###### 6. **利于扩展A**
-
-{% highlight java %}
-import;
-public void cancelAll(final Object tag);
-public void cancelAll(RequestFilter filter);
-public void cancel();
-{% endhighlight %}
 
 > 可以自定义请求request（即定义request数据类型）和返回response（即定义返回数据类型)。
 
@@ -119,9 +111,9 @@ public void cancel();
 Volley是发布在Google Code上的，现在一般都是从GitHub上找官方的镜像代码，如 [Volley-GitHub地址](https://github.com/mcxiaoke/android-volley) (an unofficial mirror)。
 
 
-{% highlight java %}
+```java
 git clone https://github.com/mcxiaoke/android-volley.git
-{% endhighlight %}
+```
 
 请注意，这个是Android Studio 版本。
 
@@ -145,16 +137,16 @@ git clone https://github.com/mcxiaoke/android-volley.git
 
 **1.创建队列 RequestQueue 对象**
 
-{% highlight java %}
+```java
 RequestQueue mQueue = Volley.newRequestQueue(context);
-{% endhighlight %}
+```
    
    > 注意这里拿到的RequestQueue是一个请求队列对象，它可以缓存所有的HTTP请求，然后按照一定的算法并发地发出这些请求。RequestQueue内部的设计就是非常合适高并发的，因此我们不必为每一次HTTP请求都创建一个RequestQueue对象，这是非常浪费资源的，基本上在每一个需要和网络交互的Activity中创建一个RequestQueue对象就足够了。
    
 
 **2.创建请求实例 StringRequest 对象(包含了对返回的处理回调)**
 
-{% highlight java %}
+```java
 String url = "http://www.baidu.com";
 StringRequest stringRequest = new StringRequest(url,  
       new Response.Listener<String>() {  
@@ -168,21 +160,21 @@ StringRequest stringRequest = new StringRequest(url,
             Log.e("TAG", error.getMessage(), error);  
          }  
       });
-{% endhighlight %}
+```
 
 > 可以看到，这里new出了一个StringRequest对象，StringRequest的构造函数需要传入三个参数，第一个参数就是目标服务器的URL地址，第二个参数是服务器响应成功的回调，第三个参数是服务器响应失败的回调。其中，目标服务器地址我们填写的是百度的首页，然后在响应成功的回调里打印出服务器返回的内容，在响应失败的回调里打印出失败的详细信息
 
 **3.将请求实例对象 StringRequest 加入 RequestQueue 中，即可自动执行**
 
-{% highlight java %}
+```java
 mQueue.add(stringRequest); 
-{% endhighlight %}
+```
 
 **4.在这之前，一定要加入网络访问权限，否则会失败的**
 
-{% highlight java %}
+```java
 <uses-permission android:name="android.permission.INTERNET" /> 
-{% endhighlight %}
+```
 
 好了，是不是很简单，拿起这个例子运行一下吧，可以看到类似下图所示的log信息
 
@@ -192,13 +184,13 @@ mQueue.add(stringRequest);
 
 不过大家都知道，HTTP的请求类型通常有两种，GET和POST，刚才我们使用的明显是一个GET请求，那么如果想要发出一条POST请求应该怎么做呢？StringRequest中还提供了另外一种四个参数的构造函数，其中第一个参数就是指定请求类型的，我们可以使用如下方式进行指定：
 
-{% highlight java %}
+```java
 StringRequest stringRequest = new StringRequest(Method.POST, url,  listener, errorListener);
-{% endhighlight %}
+```
 
 可是这只是指定了HTTP请求方式是POST，那么我们要提交给服务器的参数又该怎么设置呢？很遗憾，StringRequest中并没有提供设置POST参数的方法，但是当发出POST请求的时候，Volley会尝试调用StringRequest的父类——Request中的getParams()方法来获取POST参数，那么解决方法自然也就有了，我们只需要在StringRequest的匿名类中重写getParams()方法，在这里设置POST参数就可以了，代码如下所示：
 
-{% highlight java %}
+```java
 StringRequest stringRequest = new StringRequest(Method.POST, url,  listener, errorListener) {
 	@Override
 	protected Map<String, String> getParams() throws AuthFailureError {
@@ -208,7 +200,7 @@ StringRequest stringRequest = new StringRequest(Method.POST, url,  listener, err
 		return map;
 	}
 };
-{% endhighlight %}
+```
 关于简单的HelloWorld小程序就说到这里，上面介绍了简单的GET和POST方式发送数据，并在返回回调中用Log打印出来。而且Volley是开源的，只要你愿意，你可以自由地在里面添加和修改任何的方法，轻松就能定制出一个属于你自己的Volley版本。（关于Volley的修改部分稍后会放出文章链接）
 
 ---
@@ -244,7 +236,7 @@ HelloWorld例子中我们使用了StringRequest，当前Volley常用到的的Req
 
 > 其中，StringRequest和JsonRequest都是继承自Request的，所以它们的用法才会如此类似。那么不用多说，今天我们要学习的ImageRequest，相信你从名字上就已经猜出来了，它也是继承自Request的，因此它的用法也是基本相同的,所以，我只贴出创建主要第二步，一三两步略过
 
-{% highlight java %}
+```java
 ImageRequest imageRequest = new ImageRequest(
 		"http://developer.android.com/images/home/aw_dac.png",
 		new Response.Listener<Bitmap>() {
@@ -258,7 +250,7 @@ ImageRequest imageRequest = new ImageRequest(
 				imageView.setImageResource(R.drawable.default_image);
 			}
 		});
-{% endhighlight %}
+```
 
 可以看到，ImageRequest的构造函数接收六个参数，第一个参数就是图片的URL地址，这个没什么需要解释的。第二个参数是图片请求成功的回调，这里我们把返回的Bitmap参数设置到ImageView中。第三第四个参数分别用于指定允许图片最大的宽度和高度，如果指定的网络图片的宽度或高度大于这里的最大值，则会对图片进行压缩，指定成0的话就表示不管图片有多大，都不会进行压缩。第五个参数用于指定图片的颜色属性，Bitmap.Config下的几个常量都可以在这里使用，其中ARGB_8888可以展示最好的颜色属性，每个图片像素占据4个字节的大小，而RGB_565则表示每个图片像素占据2个字节大小。第六个参数是图片请求失败的回调，这里我们当请求失败时在ImageView中显示一张默认图片。
 
@@ -279,7 +271,7 @@ ImageRequest imageRequest = new ImageRequest(
 
 下面我们就来按照这个步骤，学习一下ImageLoader的用法吧。首先第一步的创建RequestQueue对象我们已经写过很多遍了，相信已经不用再重复介绍了，那么就从第二步开始学习吧，新建一个ImageLoader对象，代码如下所示：
 
-{% highlight java %}
+```java
 ImageLoader imageLoader = new ImageLoader(mQueue, new ImageCache() {
 	@Override
 	public void putBitmap(String url, Bitmap bitmap) {
@@ -290,31 +282,31 @@ ImageLoader imageLoader = new ImageLoader(mQueue, new ImageCache() {
 		return null;
 	}
 });
-{% endhighlight %}
+```
 
 可以看到，ImageLoader的构造函数接收两个参数，第一个参数就是RequestQueue对象，第二个参数是一个ImageCache对象，这里我们先new出一个空的ImageCache的实现即可。
 
 接下来需要获取一个ImageListener对象，代码如下所示：
 
-{% highlight java %}
+```java
 ImageListener listener = ImageLoader.getImageListener(imageView,
 		R.drawable.default_image, R.drawable.failed_image);
-{% endhighlight %}
+```
 
 我们通过调用ImageLoader的getImageListener()方法能够获取到一个ImageListener对象，getImageListener()方法接收三个参数，第一个参数指定用于显示图片的ImageView控件，第二个参数指定加载图片的过程中显示的图片，第三个参数指定加载图片失败的情况下显示的图片。
 
 最后，调用ImageLoader的get()方法来加载图片，代码如下所示：
 
-{% highlight java %}
+```java
 imageLoader.get("http://img.my.csdn.net/uploads/201404/13/1397393290_5765.jpeg", listener);
-{% endhighlight %}
+```
 
 get()方法接收两个参数，第一个参数就是图片的URL地址，第二个参数则是刚刚获取到的ImageListener对象。当然，如果你想对图片的大小进行限制，也可以使用get()方法的重载，指定图片允许的最大宽度和高度，如下所示：
 
-{% highlight java %}
+```java
 imageLoader.get("http://img.my.csdn.net/uploads/201404/13/1397393290_5765.jpeg",
 				listener, 200, 200);
-{% endhighlight %}
+```
 
 现在运行一下程序并开始加载图片，你将看到ImageView中会先显示一张默认的图片，等到网络上的图片加载完成后，ImageView则会自动显示该图，效果如下图所示:
 
@@ -322,7 +314,7 @@ imageLoader.get("http://img.my.csdn.net/uploads/201404/13/1397393290_5765.jpeg",
 
 虽然现在我们已经掌握了ImageLoader的用法，但是刚才介绍的ImageLoader的优点却还没有使用到。为什么呢？因为这里创建的ImageCache对象是一个空的实现，完全没能起到图片缓存的作用。其实写一个ImageCache也非常简单，但是如果想要写一个性能非常好的ImageCache，最好就要借助Android提供的LruCache功能了，如果你对LruCache还不了解，可以现在网络上自行检索下。下面直接给出代码：
 
-{% highlight java %}
+```java
 public class BitmapCache implements ImageCache {
 
 	private LruCache<String, Bitmap> mCache;
@@ -348,13 +340,13 @@ public class BitmapCache implements ImageCache {
 	}
 
 }
-{% endhighlight %}
+```
 
 可以看到，这里我们将缓存图片的大小设置为10M。接着修改创建ImageLoader实例的代码，第二个参数传入BitmapCache的实例，如下所示：
 
-{% highlight java %}
+```java
 ImageLoader imageLoader = new ImageLoader(mQueue, new BitmapCache());  
-{% endhighlight %}
+```
 
 这样我们就把ImageLoader的功能优势充分利用起来了。
 
@@ -370,7 +362,7 @@ ImageLoader imageLoader = new ImageLoader(mQueue, new BitmapCache());
 
 其中，第一第二步和ImageLoader的用法是完全一样的，因此这里我们就从第三步开始学习了。首先修改布局文件中的代码，在里面加入NetworkImageView控件，如下所示：
 
-{% highlight java %}
+```java
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -387,22 +379,22 @@ ImageLoader imageLoader = new ImageLoader(mQueue, new BitmapCache());
         android:layout_gravity="center_horizontal"
         />
 </LinearLayout>
-{% endhighlight %}
+```
 
 接着在Activity获取到这个控件的实例，这就非常简单了，代码如下所示：
 
-{% highlight java %}
+```java
 networkImageView = (NetworkImageView) findViewById(R.id.network_image_view);
-{% endhighlight %}
+```
 
 得到了NetworkImageView控件的实例之后，我们可以调用它的setDefaultImageResId()方法、setErrorImageResId()方法和setImageUrl()方法来分别设置加载中显示的图片，加载失败时显示的图片，以及目标图片的URL地址，如下所示：
 
-{% endhighlight %}
+```
 networkImageView.setDefaultImageResId(R.drawable.default_image);
 networkImageView.setErrorImageResId(R.drawable.failed_image);
 networkImageView.setImageUrl("http://img.my.csdn.net/uploads/201404/13/1397393290_5765.jpeg",
 				imageLoader);
-{% endhighlight %}
+```
 
 其中，setImageUrl()方法接收两个参数，第一个参数用于指定图片的URL地址，第二个参数则是前面创建好的ImageLoader对象。
 
