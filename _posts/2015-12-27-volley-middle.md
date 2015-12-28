@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "Volley中级（定制Volley）「汇总」"
-subtitle:   "关于Volley如何定制Request"
+title:      "Volley(2)-volley灵活使用「汇总」"
+subtitle:   "关于Volley如何定制使满足需求"
 date:       2015-12-27
 author:     "JackSunny"
 header-img: "img/post-bg-android.jpg"
