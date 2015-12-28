@@ -10,7 +10,7 @@ tags:
     - Volley
 ---
 
-#Volley 初识
+# Volley 初识
 
 ## 导语
 
@@ -147,22 +147,6 @@ RequestQueue mQueue = Volley.newRequestQueue(context);
 **2.创建请求实例 StringRequest 对象(包含了对返回的处理回调)**
 
 ```java
-String url = "http://www.baidu.com";
-StringRequest stringRequest = new StringRequest(url,  
-      new Response.Listener<String>() {  
-         @Override  
-         public void onResponse(String response) {  
-            Log.d("TAG", response);  
-         }  
-      }, new Response.ErrorListener() {  
-         @Override  
-         public void onErrorResponse(VolleyError error) {  
-            Log.e("TAG", error.getMessage(), error);  
-         }  
-      });
-```
-
-```ruby
 String url = "http://www.baidu.com";
 StringRequest stringRequest = new StringRequest(url,  
       new Response.Listener<String>() {  
