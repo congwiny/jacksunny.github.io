@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Gradle使用方法与技巧「汇总」，未完..."
+title:      "Gradle使用方法与技巧「汇总」，未完...."
 subtitle:   "主要介绍Gradle的使用方法与技巧"
 date:       2016-1-4
 author:     "JackSunny"
