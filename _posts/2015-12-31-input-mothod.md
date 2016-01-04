@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "输入法相关姿势「汇总」(未完成....)"
+title:      "输入法相关姿势「汇总」(未完成...)"
 subtitle:   "主要介绍和输入法有关的一些姿势"
 date:       2015-12-31
 author:     "JackSunny"
