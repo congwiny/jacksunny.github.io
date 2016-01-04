@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "输入法相关姿势「汇总」(未完成...)"
+title:      "输入法相关姿势「汇总」(未完成....)"
 subtitle:   "主要介绍和输入法有关的一些姿势"
 date:       2015-12-31
 author:     "JackSunny"
@@ -72,7 +72,7 @@ tags:
 
 > 这种方法需要提前说清楚的是，调用imm.showSoftInput方法从而得出软键盘状态，同时也会把软键盘强制弹出，这是个很让人纠结的问题，调用imm.hideSoftInputFromWindow也可以得到软键盘状态，但是会强制关闭软键盘（试过得到状态后强制软键盘回到之前状态，屏幕会闪动），所以，慎用（**`有解决办法请告知`**）
 
-```java
+```ruby
 		InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         final EditText et = (EditText) findViewById(R.id.editText);
         IMMResult result = new IMMResult();
@@ -85,7 +85,7 @@ tags:
         }
 ```
 
-```java
+```
     private class IMMResult extends ResultReceiver {
         public int result = -1;
         public IMMResult() {
