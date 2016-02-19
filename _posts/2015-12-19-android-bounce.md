@@ -145,6 +145,8 @@ tags:
 mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.XOR));
 ```
 
+[更多混合模式请狂点我](http://www.cnblogs.com/DonkeyTomy/articles/3215137.html)
+
 ![](http://img.blog.csdn.net/20151218181054959)
 
 即 `当时间插值 为 0f - 0.5f的时候，控制椭圆所在矩形高度由大减小到0，同时绘制椭圆下半部`

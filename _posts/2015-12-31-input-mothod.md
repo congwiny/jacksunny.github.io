@@ -85,7 +85,7 @@ tags:
         }
 ```
 
-```
+```java
     private class IMMResult extends ResultReceiver {
         public int result = -1;
         public IMMResult() {
@@ -189,14 +189,11 @@ int heightOfKeyBoard = heightOfScreen - heightAfterChange;
 > 从SDK 1.5版本以后，Android就开放它的IMF（Input Method Framework），让我们能够开发自己的输入法。而开发输入法最好的参考就是Android自带的Sample-SoftKeyboard，虽然这个例子仅包含英文和数字输入，但是它本身还算完整和清楚，对我们开始Android开发实战有很大帮助。
 >> 下载的`sdk/sample/android-8/` 以及  `sdk/samples/android-23/legacy/` 下都有`SoftKeyboard`源码，我们用android-8中的
 
-### 1.概述
+### 原理分析文章
 
-从InputMethodServiceSample项目可以看出实现一个输入法至少需要CandidateView, LatinKeyboard, LatinKeyboardView,SoftKeyboard这四个文件：
+*以下是传送门：*
 
-* CandidateView负责显示软键盘上面的那个候选区域。
-* LatinKeyboard负责解析并保存键盘布局，并提供选词算法，供程序运行当中使用。其中键盘布局是以XML文件存放在资源当中的。比如我们在汉字输入法下，按下b、a两个字母。LatinKeyboard就负责把这两个字母变成爸、把、巴等显示在CandidateView上。
-* LatinKeyboardView负责显示，就是我们看到的按键。它与CandidateView合起来，组成了InputView，就是我们看到的软键盘。
-* SoftKeyboard继承了InputMethodService，启动一个输入法，其实就是启动一个InputMethodService，当SoftKeyboard输入法被使用时，启动就会启动SoftKeyboard这个Service。
+1. [Android开发实例详解之IMF](http://blog.csdn.net/deaboway/article/details/6246622)
 
 
 **待续**
